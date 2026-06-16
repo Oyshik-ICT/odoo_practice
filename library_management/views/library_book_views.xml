@@ -4,6 +4,10 @@
         <field name="model">library.book</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button string="Unavailable" type="object" name="make_unavailable" invisible="state == 'unavailable'"/>
+                    <button string="Available" type="object" name="make_available" invisible="state == 'available'"/>
+                </header>
                 <sheet>
                     <group>
                         <h1>
@@ -18,7 +22,6 @@
                         <group>
                             <field name="total_copies"/>
                             <field name="available_copies"/>
-                            <field name="state"/>
                         </group>
                     </group>
                 </sheet>

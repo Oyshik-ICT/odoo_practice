@@ -33,3 +33,15 @@ class LibraryBook(models.Model):
                 raise ValidationError(
                     "Available copies must be less than or equal to total copies"
                 )
+
+    def make_unavailable(self):
+        for record in self:
+            if record.state == "available":
+                record.state = "unavailable"
+                record.available_copies = 0
+
+    def make_available(self):
+        for record in self:
+            if record.state == "unavailable":
+                record.state = "available"
+                record.available_copies = record.total_copies
