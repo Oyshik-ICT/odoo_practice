@@ -1,8 +1,10 @@
-from odoo import fields, models
+from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class LibraryBook(models.Model):
     _name = "library.book"
+    _description = "Books Information"
 
     name = fields.Char(string="Name", required=True)
     author = fields.Char(string="Author", required=True)
@@ -21,3 +23,13 @@ class LibraryBook(models.Model):
     _sql_constraints = [
         ("unique_isbn", "UNIQUE(isbn)", "ISBN must be unique"),
     ]
+
+    @api.constrains("total_copies", "available_copies")
+    def _check_copies(self):
+        for record in self:
+            if record.total_copies < 0 or record.available_copies < 0:
+                raise ValidationError("Copies can't be negative")
+            if record.available_copies > record.total_copies:
+                raise ValidationError(
+                    "Available copies must be less than or equal to total copies"
+                )

@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="library_management" name="Library">
+        <menuitem id="details_info" name="Records">
+            <menuitem id="books" name="Books" action="library_book_action"/>
+            <menuitem id="members" name="Members" action="library_member_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>
