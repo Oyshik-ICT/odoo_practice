@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="root_property_type" name="Property Type">
+        <menuitem id="second_type" name="type" action="property_type_action"/>
+    </menuitem>
+</odoo>
