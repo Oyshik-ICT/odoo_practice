@@ -1,4 +1,15 @@
 <odoo>
+    <record id="library_book_search_view" model="ir.ui.view">
+        <field name="name">library.book.view.search</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Available" name="available_state" domain='[("state", "=", "available")]'/>
+                <filter string="State Group" name="group_by_state" context='{"group_by": "state"}'/>
+            </search>
+        </field>
+    </record>
+
     <record id="library_book_form_view" model="ir.ui.view">
         <field name="name">library.book.view.form</field>
         <field name="model">library.book</field>
