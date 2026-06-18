@@ -8,6 +8,8 @@
         "views/library_book_views.xml",
         "views/library_member_views.xml",
         "views/menu.xml",
+        "reports/ir_actions_report.xml",
+        "reports/book_report.xml",
     ],
     "license": "LGPL-3",
     "sequence": -10,
