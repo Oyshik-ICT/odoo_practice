@@ -1,0 +1,31 @@
+<odoo>
+    <record id="inherit_sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.view.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="delivery_date"/>
+                <field name="responsible_person"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_sale_order_list" model="ir.ui.view">
+        <field name="name">sale.order.view.list</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="delivery_date"/>
+                <field name="responsible_person"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_action" model="ir.actions.act_window">
+        <field name="name">Sales Order</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
